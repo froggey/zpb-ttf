@@ -452,7 +452,7 @@ table.")
 (defun unicode-octets-to-string (octets)
   (let ((string (make-string (/ (length octets) 2))))
     (flet ((ref16 (i)
-             (+ (ash (aref octets i) 16)
+             (+ (ash (aref octets i) 8)
                 (aref octets (1+ i)))))
       (loop for i from 0 below (length octets) by 2
             for j from 0
