@@ -33,6 +33,8 @@
 
 (in-package #:zpb-ttf)
 
+(defgeneric load-head-info (font-loader))
+
 (defmethod load-head-info ((font-loader font-loader))
   (seek-to-table "head" font-loader)
   (with-slots (input-stream units/em bounding-box loca-offset-format)

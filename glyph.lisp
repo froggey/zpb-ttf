@@ -87,6 +87,8 @@ to look up information in various structures in the truetype file.")
     (bounded-aref (left-side-bearings (font-loader glyph))
                   (font-index glyph))))
 
+(defgeneric (setf left-side-bearing) (new-value glyph))
+
 (defmethod (setf left-side-bearing) (new-value glyph)
   (setf (bounded-aref (left-side-bearings (font-loader glyph))
                       (font-index glyph))
@@ -121,6 +123,8 @@ to look up information in various structures in the truetype file.")
     (bounded-aref (advance-widths (font-loader glyph))
                   (font-index glyph))))
 
+(defgeneric (setf advance-width) (new-value glyph))
+
 (defmethod (setf advance-width) (new-value (glyph glyph))
   (setf (bounded-aref (advance-widths (font-loader glyph))
                       (font-index glyph))
@@ -148,6 +152,7 @@ to look up information in various structures in the truetype file.")
 
 ;;; Initializing delayed data
 
+(defgeneric initialize-bounding-box (glyph))
 (defmethod initialize-bounding-box ((glyph glyph))
   (if (zerop (data-size glyph))
       (setf (bounding-box glyph) (empty-bounding-box))
@@ -160,6 +165,7 @@ to look up information in various structures in the truetype file.")
                       (read-fword stream)
                       (read-fword stream))))))
   
+(defgeneric initialize-contours (glyph))
 (defmethod initialize-contours ((glyph glyph))
   (if (zerop (data-size glyph))
       (setf (contours glyph) (empty-contours))

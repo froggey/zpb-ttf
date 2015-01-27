@@ -100,6 +100,12 @@ the CHAR-CODE of each character."
 
 ;;; Getting table info out of the loader
 
+(defgeneric table-info (tag font-loader))
+(defgeneric table-exists-p (tag font-loader))
+(defgeneric table-position (tag font-loader))
+(defgeneric table-size (tag font-loader))
+(defgeneric seek-to-table (tag font-loader))
+
 (defmethod table-info ((tag string) (font-loader font-loader))
   (gethash (tag->number tag) (tables font-loader)))
 

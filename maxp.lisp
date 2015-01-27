@@ -33,6 +33,8 @@
 
 (in-package #:zpb-ttf)
 
+(defgeneric load-maxp-info (font-loader))
+
 (defmethod load-maxp-info ((font-loader font-loader))
   (seek-to-table "maxp" font-loader)
   (with-slots (input-stream glyph-count) font-loader

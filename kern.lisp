@@ -33,6 +33,10 @@
 
 (in-package #:zpb-ttf)
 
+(defgeneric load-kerning-subtable (font-loader format))
+(defgeneric load-kern-info (font-loader))
+(defgeneric all-kerning-pairs (font-loader))
+
 (defun load-kerning-format-1 (table stream)
   "Return a hash table keyed on a UINT32 key that represents the glyph
 index in the left and right halves with a value of the kerning

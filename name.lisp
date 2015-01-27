@@ -543,6 +543,13 @@ table.")
         id
         (error "Unknown NAME identifier: ~S" symbol))))
   
+(defgeneric find-name-entry (platform-id encoding-id language-id name-id
+                             font-loader))
+(defgeneric name-entry-value (name-designator font-loader))
+(defgeneric postscript-name (font-loader))
+(defgeneric family-name (font-loader))
+(defgeneric subfamily-name (font-loader))
+(defgeneric full-name (font-loader))
 
 (defmethod find-name-entry (platform-id encoding-id language-id name-id
                             (font-loader font-loader))

@@ -273,6 +273,8 @@
   (declare (ignore stream))
   (fill names nil))
 
+(defgeneric load-post-info (font-loader))
+
 (defmethod load-post-info ((font-loader font-loader))
   (let ((names (make-array (glyph-count font-loader)
                            :initial-element 0))

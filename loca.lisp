@@ -33,6 +33,10 @@
 
 (in-package #:zpb-ttf)
 
+(defgeneric glyph-length (index font-loader))
+(defgeneric glyph-location (index font-loader))
+(defgeneric load-loca-info (font-loader))
+
 (defmethod load-loca-info ((font-loader font-loader))
   (seek-to-table "loca" font-loader)
   (with-slots (input-stream glyph-locations glyph-count loca-offset-format)

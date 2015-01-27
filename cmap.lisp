@@ -98,6 +98,8 @@ current offset."
                        :glyph-indexes (make-and-load-array glyph-index-array-size))))))
 
 
+(defgeneric invert-character-map (font-loader))
+
 (defmethod invert-character-map (font-loader)
   "Return a vector mapping font indexes to code points."
   (with-slots (start-codes end-codes)
@@ -151,6 +153,8 @@ FONT-LOADER, if present, otherwise NIL.")
       (if (plusp point)
           point
           0))))
+
+(defgeneric load-cmap-info (font-loader))
 
 (defmethod load-cmap-info ((font-loader font-loader))
   (seek-to-table "cmap" font-loader)

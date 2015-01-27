@@ -33,6 +33,9 @@
 
 (in-package #:zpb-ttf)
 
+(defgeneric load-hhea-info (font-loader))
+(defgeneric horizontal-metrics-count (font-loader))
+
 (defmethod load-hhea-info ((font-loader font-loader))
   (seek-to-table "hhea" font-loader)
   (with-slots (input-stream ascender descender line-gap)

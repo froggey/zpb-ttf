@@ -33,6 +33,8 @@
 
 (in-package #:zpb-ttf)
 
+(defgeneric load-hmtx-info (font-loader))
+
 (defmethod load-hmtx-info ((font-loader font-loader))
   (let* ((horizontal-metrics-count (horizontal-metrics-count font-loader))
          (advance-widths (make-array horizontal-metrics-count))
